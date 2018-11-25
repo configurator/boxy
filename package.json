@@ -1,0 +1,137 @@
+{
+	"name": "boxy",
+	"version": "1.0.0",
+	"description": "Not webpack",
+	"main": "src/boxy.js",
+	"license": "MIT",
+	"engines": {
+		"node": ">= 10"
+	},
+	"bin": "src/boxy.js",
+	"scripts": {
+		"example": "cd example && node ../src/boxy.js",
+		"precommit": "pretty-quick --staged",
+		"prepush": "xo"
+	},
+	"devDependencies": {
+		"husky": "^1.2.0",
+		"prettier": "^1.15.2",
+		"pretty-quick": "^1.8.0",
+		"xo": "^0.23.0"
+	},
+	"prettier": {
+		"useTabs": true,
+		"tabWidth": 4,
+		"singleQuote": true,
+		"trailingComma": "all",
+		"printWidth": 100,
+		"overrides": [
+			{
+				"files": "*.json",
+				"options": {
+					"parser": "json"
+				}
+			},
+			{
+				"files": ".babelrc",
+				"options": {
+					"parser": "json"
+				}
+			},
+			{
+				"files": "*.hjs",
+				"options": {
+					"parser": "html"
+				}
+			},
+			{
+				"files": "*.scss",
+				"options": {
+					"parser": "css"
+				}
+			}
+		]
+	},
+	"xo": {
+		"ignores": [
+			"extensions",
+			"infra/scripts",
+			"vendor",
+			"services/knack-script"
+		],
+		"rules": {
+			"comma-dangle": [
+				"error",
+				"always-multiline"
+			],
+			"indent": "off",
+			"space-before-function-paren": "off",
+			"no-return-assign": "off",
+			"no-unused-vars": [
+				"error",
+				{
+					"argsIgnorePattern": "^_",
+					"varsIgnorePattern": "^_"
+				}
+			],
+			"operator-linebreak": "off",
+			"no-mixed-spaces-and-tabs": "off",
+			"no-async-promise-executor": "off",
+			"no-case-declarations": "off",
+			"new-cap": "off",
+			"camelcase": "off",
+			"one-var": "off",
+			"no-mixed-operators": "off",
+			"prefer-arrow-callback": "off",
+			"object-curly-spacing": "off",
+			"guard-for-in": "off",
+			"no-useless-return": "off",
+			"no-negated-condition": "off",
+			"generator-star-spacing": "off",
+			"no-multi-assign": "off",
+			"curly": [
+				"error",
+				"multi-line"
+			],
+			"no-else-return": "off",
+			"require-await": "off",
+			"no-return-await": "off",
+			"no-await-in-loop": "off",
+			"no-constant-condition": [
+				"error",
+				{
+					"checkLoops": false
+				}
+			],
+			"no-undef-init": "off",
+			"capitalized-comments": "off",
+			"no-warning-comments": "off",
+			"spaced-comment": "off",
+			"valid-jsdoc": "off",
+			"quotes": "off",
+			"yield-star-spacing": "off",
+			"promise/prefer-await-to-then": "off",
+			"ava/no-ignored-test-files": "off",
+			"ava/no-async-fn-without-await": "off",
+			"import/first": "off",
+			"import/no-extraneous-dependencies": "off",
+			"import/order": "off",
+			"import/newline-after-import": "off",
+			"import/no-unassigned-import": "off",
+			"unicorn/catch-error-name": [
+				"error",
+				{
+					"caughtErrorsIgnorePattern": "^(e|err|error|_.*)$"
+				}
+			],
+			"unicorn/import-index": "off",
+			"unicorn/explicit-length-check": "off",
+			"unicorn/filename-case": "off",
+			"unicorn/no-process-exit": "off",
+			"unicorn/regex-shorthand": "off"
+		},
+		"globals": [
+			"btoa"
+		]
+	}
+}
