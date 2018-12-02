@@ -1,6 +1,6 @@
 {
 	"name": "boxy-bundler",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Not webpack",
 	"main": "src/boxy.js",
 	"license": "MIT",
