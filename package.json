@@ -8,6 +8,7 @@
 		"node": ">= 10"
 	},
 	"bin": "src/boxy.js",
+	"files": ["src"],
 	"scripts": {
 		"example": "cd example && node ../src/boxy.js && echo Running bundled code... && node bundle.js",
 		"precommit": "pretty-quick --staged",
