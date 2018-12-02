@@ -1,4 +1,6 @@
-module.exports = {
+const path = require('path');
+
+const defaultConfig = {
 	entry: ['./index.js', './another-entry.js'],
 	output: { filename: 'bundle.js' },
 	module: {
@@ -26,3 +28,18 @@ module.exports = {
 		],
 	},
 };
+
+const loadConfig = () => {
+	switch (process.argv.length) {
+		case 2:
+			return defaultConfig;
+
+		case 3:
+			return require(path.resolve(process.argv[2]));
+
+		default:
+			throw new Error('Expected 0 or 1 commandline parameters');
+	}
+};
+
+module.exports = loadConfig();
