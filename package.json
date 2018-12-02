@@ -9,7 +9,7 @@
 	},
 	"bin": "src/boxy.js",
 	"scripts": {
-		"example": "cd example && node ../src/boxy.js",
+		"example": "cd example && node ../src/boxy.js && echo Running bundled code... && node bundle.js",
 		"precommit": "pretty-quick --staged",
 		"prepush": "xo"
 	},
@@ -53,17 +53,9 @@
 		]
 	},
 	"xo": {
-		"ignores": [
-			"extensions",
-			"infra/scripts",
-			"vendor",
-			"services/knack-script"
-		],
+		"ignores": ["extensions", "infra/scripts", "vendor", "services/knack-script"],
 		"rules": {
-			"comma-dangle": [
-				"error",
-				"always-multiline"
-			],
+			"comma-dangle": ["error", "always-multiline"],
 			"indent": "off",
 			"space-before-function-paren": "off",
 			"no-return-assign": "off",
@@ -89,10 +81,7 @@
 			"no-negated-condition": "off",
 			"generator-star-spacing": "off",
 			"no-multi-assign": "off",
-			"curly": [
-				"error",
-				"multi-line"
-			],
+			"curly": ["error", "multi-line"],
 			"no-else-return": "off",
 			"require-await": "off",
 			"no-return-await": "off",
@@ -130,8 +119,24 @@
 			"unicorn/no-process-exit": "off",
 			"unicorn/regex-shorthand": "off"
 		},
-		"globals": [
-			"btoa"
-		]
+		"globals": ["btoa"]
+	},
+	"dependencies": {
+		"@babel/core": "^7.1.6",
+		"@babel/parser": "^7.1.6",
+		"@babel/plugin-proposal-class-properties": "^7.1.0",
+		"@babel/plugin-proposal-decorators": "^7.1.6",
+		"@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+		"@babel/plugin-syntax-dynamic-import": "^7.0.0",
+		"@babel/preset-env": "^7.1.6",
+		"@babel/preset-react": "^7.0.0",
+		"@babel/traverse": "^7.1.6",
+		"babel-loader": "^8.0.4",
+		"bluebird": "^3.5.3",
+		"fs-extra": "^7.0.1",
+		"react": "^16.6.3",
+		"style-loader": "^0.23.1",
+		"webpack": "^4.26.1",
+		"webpack-cli": "^3.1.2"
 	}
 }
