@@ -11,7 +11,7 @@
 	"scripts": {
 		"example": "cd example && node ../src/boxy.js && echo Running bundled code... && node bundle.js",
 		"precommit": "pretty-quick --staged",
-		"prepush": "xo"
+		"prepush": "xo src/**/*.js"
 	},
 	"devDependencies": {
 		"husky": "^1.2.0",

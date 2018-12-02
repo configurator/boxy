@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs-extra');
 
-const dirname = path.dirname;
+const { dirname } = path;
 const extension = file => path.extname(file).replace(/^\./, '');
 
 const cwd = process.cwd();

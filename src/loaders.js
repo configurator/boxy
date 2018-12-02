@@ -39,7 +39,7 @@ const findMatchingRule = absolute => {
 	return [];
 };
 
-const applyLoaders = async (source, { absolute, type }) => {
+const applyLoaders = async (source, { absolute }) => {
 	const loaders = findMatchingRule(absolute);
 
 	for (const { loader, options } of loaders.reverse()) {
