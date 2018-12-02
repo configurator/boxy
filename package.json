@@ -1,5 +1,5 @@
 {
-	"name": "boxy",
+	"name": "boxy-bundler",
 	"version": "1.0.0",
 	"description": "Not webpack",
 	"main": "src/boxy.js",
