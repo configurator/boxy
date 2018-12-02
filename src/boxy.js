@@ -76,6 +76,8 @@ ${entryModules.map(module => `boxy.require(${module.id});`).join('\n')}
 
 const bundle = async () => {
 	try {
+		const startTime = Date.now();
+
 		const modules = {};
 		let maxModuleId = 0;
 
@@ -106,6 +108,7 @@ const bundle = async () => {
 		const bundle = await createBundle(modules, entryModules);
 
 		await fs.writeFile(config.output.filename, bundle);
+		console.log(`Build finished in ${Date.now() - startTime}ms - ${config.output.filename}`);
 	} catch (e) {
 		console.error(e);
 		process.exit(1);
