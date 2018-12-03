@@ -100,9 +100,10 @@ const bundle = async () => {
 		};
 
 		// Collect the primary entry point, and everything it leads to
-		const entryModules = await Promise.all(
-			config.entry.map(async entry => await collectModule(entry, paths.cwd)),
-		);
+		const entryModules = [];
+		for (const entry of config.entry) {
+			entryModules.push(await collectModule(entry, paths.cwd));
+		}
 
 		// Create a bundle
 		const bundle = await createBundle(modules, entryModules);
