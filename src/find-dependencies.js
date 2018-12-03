@@ -1,9 +1,7 @@
 const { parse } = require('@babel/parser');
 const traverse = require('@babel/traverse').default;
-const { applyLoaders } = require('./loaders');
 
-const transpile = async (source, module) => {
-	const compiled = await applyLoaders(source, module);
+const findDependencies = async compiled => {
 	const ast = await parse(compiled);
 
 	const dependencies = {};
@@ -23,10 +21,7 @@ const transpile = async (source, module) => {
 		},
 	});
 
-	return {
-		compiled,
-		dependencies,
-	};
+	return dependencies;
 };
 
-module.exports = { transpile };
+module.exports = { findDependencies };

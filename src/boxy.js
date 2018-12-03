@@ -3,7 +3,8 @@
 const fs = require('fs-extra');
 const config = require('./config');
 const paths = require('./paths');
-const { transpile } = require('./transpile');
+const { applyLoaders } = require('./loaders');
+const { findDependencies } = require('./find-dependencies');
 
 const loadModule = async absolute => {
 	const module = {
@@ -14,7 +15,8 @@ const loadModule = async absolute => {
 	};
 
 	const source = await fs.readFile(absolute, 'utf-8');
-	const { compiled, dependencies } = await transpile(source, module);
+	const compiled = await applyLoaders(source, module);
+	const dependencies = await findDependencies(compiled);
 
 	return {
 		...module,
