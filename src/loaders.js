@@ -3,7 +3,7 @@ const {
 	module: { rules },
 } = require('./config');
 
-const applySyncAsyncLoader = async (source, loader, options) => {
+const applyLoader = async (source, loader, options) => {
 	let isAsync = false;
 	let asyncDeferred;
 
@@ -43,7 +43,7 @@ const applyLoaders = async (source, { absolute }) => {
 	const loaders = findMatchingRule(absolute);
 
 	for (const { loader, options } of loaders.reverse()) {
-		const result = await applySyncAsyncLoader(source, require(loader), options);
+		const result = await applyLoader(source, require(loader), options);
 		if (typeof result === 'string') {
 			source = result;
 		} else {
