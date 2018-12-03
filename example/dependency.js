@@ -1,4 +1,4 @@
-console.log(`${__filename} loaded`);
+console.log(`Inside dependency.js`);
 
 module.exports = {
 	hello: 'world',

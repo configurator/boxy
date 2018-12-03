@@ -1,4 +1,5 @@
-console.log();
+console.log(`Inside another-entry.js`);
 
-console.log(`${__filename} loaded`);
-console.log();
+const dependency = require('./dependency.js');
+
+console.log(`another-entry says: hello ${dependency.hello}`);
