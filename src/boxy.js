@@ -30,10 +30,10 @@ const loadModule = async absolute => {
 
 const createBundle = async (modules, entryModules) => `
 const boxy = {
-	bundle: [${Object.values(modules)
+	bundle: {${Object.values(modules)
 		.map(
 			module => `
-		{
+		'${module.id}': {
 /******************** ${module.relative} ********************/
 			id: ${module.id},
 			absolute: ${JSON.stringify(module.absolute)},
@@ -50,7 +50,7 @@ ${module.compiled}
 		}`,
 		)
 		.join(',')}
-	],
+	},
 	require: function (id) {
 		const module = boxy.bundle[id];
 		if (!module) {
