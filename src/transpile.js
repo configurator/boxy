@@ -9,7 +9,6 @@ const transpile = async (source, module) => {
 	const dependencies = {};
 	await traverse(ast, {
 		CallExpression: ({ node }) => {
-			// console.log(node);
 			if (node.callee.type === 'Identifier' && node.callee.name === 'require') {
 				if (node.arguments.length !== 1) {
 					throw new Error(
