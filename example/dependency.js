@@ -1,5 +1,7 @@
 console.log(`Inside dependency.js`);
 
-module.exports = {
-	hello: 'world',
-};
+class Thing {
+	hello = 'world';
+}
+
+module.exports = new Thing();
